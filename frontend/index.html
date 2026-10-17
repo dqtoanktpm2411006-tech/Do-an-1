@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAIPY - AI E-Commerce Platform</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        },
+                        accent: '#2563eb'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+    <!-- 1. HEADER CHÍNH -->
+    <header class="bg-[#03172c] text-white sticky top-0 z-40 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-2.5 flex items-center justify-between gap-4">
+            
+            <!-- LOGO -->
+            <a href="#" class="flex items-center group">
+                <img src="../assets/KAIPY 2.png" alt="KAIPY Logo" class="h-9 w-auto object-contain transition-transform group-hover:scale-105" onerror="this.src='KAIPY 2.png'">
+            </a>
+
+            <!-- AI Search Bar (Thanh tìm kiếm ngữ nghĩa) -->
+            <div class="flex-1 max-w-2xl relative">
+                <form class="relative flex items-center">
+                    <input type="text" 
+                        placeholder="Bạn cần tìm gì? (Ví dụ: Laptop mỏng nhẹ pin trâu...)" 
+                        class="w-full bg-[#0a233f] text-slate-100 placeholder-slate-400 pl-10 pr-24 py-2 rounded-lg border border-slate-700/60 focus:outline-none focus:border-accent text-sm">
+                    <i class="fa-solid fa-wand-magic-sparkles absolute left-3 text-blue-400"></i>
+                    <button type="submit" class="absolute right-1 bg-accent hover:bg-blue-700 text-white px-3.5 py-1.5 rounded-md text-xs font-semibold flex items-center gap-1 transition">
+                        <span>AI Search</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex items-center gap-5 text-sm">
+                <a href="#" class="hover:text-blue-300 transition flex items-center gap-1">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span>Giỏ hàng</span>
+                    <span class="bg-blue-600 text-white text-xs px-1.5 py-0.5 rounded-full">3</span>
+                </a>
+                <a href="#" class="bg-[#0a233f] hover:bg-slate-700 px-3 py-1.5 rounded-lg border border-slate-700/60 transition">
+                    Đăng nhập
+                </a>
+            </div>
+        </div>
+
+        <!-- 2. NAVIGATION BAR -->
+        <nav class="bg-[#021020] text-slate-200 border-t border-slate-800/80 text-xs font-medium">
+            <div class="max-w-7xl mx-auto px-4 flex items-center space-x-1">
+                
+                <!-- Item 1: Điện thoại -->
+                <div class="relative group">
+                    <button class="flex items-center gap-1.5 py-2 px-3 hover:bg-[#0a233f] hover:text-white transition rounded-t-md">
+                        <i class="fa-solid fa-mobile-screen text-blue-400"></i>
+                        <span>Điện thoại</span>
+                        <i class="fa-solid fa-chevron-down text-[9px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
+                    </button>
+                    <!-- Submenu Dropdown -->
+                    <div class="absolute top-full left-0 hidden group-hover:block w-56 bg-white text-slate-800 shadow-xl rounded-b-lg border border-slate-200 z-50 p-2 space-y-1">
+                        <a href="#" class="block px-3 py-2 rounded-md hover:bg-slate-100 transition font-medium flex justify-between items-center">
+                            <span>iPhone (Apple)</span>
+                            <span class="text-[10px] bg-red-100 text-red-600 px-1.5 py-0.5 rounded font-bold">Hot</span>
+                        </a>
+                        <a href="#" class="block px-3 py-2 rounded-md hover:bg-slate-100 transition">Samsung Galaxy</a>
+                        <a href="#" class="block px-3 py-2 rounded-md hover:bg-slate-100 transition">Xiaomi / POCO</a>
+                        <a href="#" class="block px-3 py-2 rounded-md hover:bg-slate-100 transition">OPPO / Vivo</a>
+                    </div>
+                </div>
+
+                <!-- Item 2: Laptop -->
+                <div class="relative group">
+                    <button class="flex items-center gap-1.5 py-2 px-3 hover:bg-[#0a233f] hover:text-white transition rounded-t-md">
+                        <i class="fa-solid fa-laptop text-blue-400"></i>
+                        <span>Laptop</span>
+                        <i class="fa-solid fa-chevron-down text-[9px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
+                    </button>
+                    <div class="absolute top-full left-0 hidden group-hover:block w-56 bg-white text-slate-800 shadow-xl rounded-b-lg border border-slate-200 z-50 p-2 space-y-1">
+                        <a href="#" class="block px-3 py-2 rounded-md hover:bg-slate-100 transition">MacBook</a>
+                        <a href="#" class="block px-3 py-2 rounded-md hover:bg-slate-100 transition">Laptop Gaming</a>
+                        <a href="#" class="block px-3 py-2 rounded-md hover:bg-slate-100 transition">Laptop Văn phòng / Mỏng nhẹ</a>
+                        <a href="#" class="block px-3 py-2 rounded-md hover:bg-slate-100 transition">Laptop Đồ họa - Kỹ thuật</a>
+                    </div>
+                </div>
+
+                <!-- Item 3: Phụ kiện -->
+                <div class="relative group">
+                    <button class="flex items-center gap-1.5 py-2 px-3 hover:bg-[#0a233f] hover:text-white transition rounded-t-md">
+                        <i class="fa-solid fa-headphones text-blue-400"></i>
+                        <span>Phụ kiện</span>
+                        <i class="fa-solid fa-chevron-down text-[9px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
+                    </button>
+                    <div class="absolute top-full left-0 hidden group-hover:block w-56 bg-white text-slate-800 shadow-xl rounded-b-lg border border-slate-200 z-50 p-2 space-y-1">
+                        <a href="#" class="block px-3 py-2 rounded-md hover:bg-slate-100 transition">Tai nghe Bluetooth / Gaming</a>
+                        <a href="#" class="block px-3 py-2 rounded-md hover:bg-slate-100 transition">Bàn phím cơ & Chuột</a>
+                        <a href="#" class="block px-3 py-2 rounded-md hover:bg-slate-100 transition">Sạc dự phòng & Cáp sạc</a>
+                        <a href="#" class="block px-3 py-2 rounded-md hover:bg-slate-100 transition">Loa Bluetooth</a>
+                    </div>
+                </div>
+
+                <!-- Item 4: Smartwatch -->
+                <div class="relative group">
+                    <button class="flex items-center gap-1.5 py-2 px-3 hover:bg-[#0a233f] hover:text-white transition rounded-t-md">
+                        <i class="fa-solid fa-clock text-blue-400"></i>
+                        <span>Smartwatch</span>
+                        <i class="fa-solid fa-chevron-down text-[9px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
+                    </button>
+                    <div class="absolute top-full left-0 hidden group-hover:block w-48 bg-white text-slate-800 shadow-xl rounded-b-lg border border-slate-200 z-50 p-2 space-y-1">
+                        <a href="#" class="block px-3 py-2 rounded-md hover:bg-slate-100 transition">Apple Watch</a>
+                        <a href="#" class="block px-3 py-2 rounded-md hover:bg-slate-100 transition">Samsung Galaxy Watch</a>
+                        <a href="#" class="block px-3 py-2 rounded-md hover:bg-slate-100 transition">Vòng đeo tay thông minh</a>
+                    </div>
+                </div>
+
+                <!-- Item 5: Màn hình, Máy in -->
+                <div class="relative group">
+                    <button class="flex items-center gap-1.5 py-2 px-3 hover:bg-[#0a233f] hover:text-white transition rounded-t-md">
+                        <i class="fa-solid fa-desktop text-blue-400"></i>
+                        <span>Màn hình, Máy in</span>
+                        <i class="fa-solid fa-chevron-down text-[9px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
+                    </button>
+                    <div class="absolute top-full left-0 hidden group-hover:block w-48 bg-white text-slate-800 shadow-xl rounded-b-lg border border-slate-200 z-50 p-2 space-y-1">
+                        <a href="#" class="block px-3 py-2 rounded-md hover:bg-slate-100 transition">Màn hình Đồ họa 4K</a>
+                        <a href="#" class="block px-3 py-2 rounded-md hover:bg-slate-100 transition">Màn hình Gaming 144Hz+</a>
+                        <a href="#" class="block px-3 py-2 rounded-md hover:bg-slate-100 transition">Máy in văn phòng</a>
+                    </div>
+                </div>
+
+                <!-- Item AI Special Feature Tag -->
+                <a href="#" class="flex items-center gap-1.5 py-2 px-3 text-blue-300 hover:text-white transition font-semibold">
+                    <i class="fa-solid fa-sparkles text-amber-400"></i>
+                    <span>Gợi ý thông minh AI</span>
+                </a>
+
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION / BANNER GIỚI THIỆU TÍNH NĂNG AI -->
+    <section class="bg-gradient-to-r from-[#03172c] via-[#082240] to-[#03172c] text-white py-8 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="space-y-3 max-w-xl">
+                <h1 class="text-2xl md:text-3xl font-bold leading-tight">Mua sắm thông minh cùng trợ lý AI </h1>
+                <p class="text-slate-400 text-sm">Hãy nói với tôi nhu cầu của bạn!</p>
+            </div>
+            <!-- Quick Suggest Tags -->
+            <div class="flex flex-wrap gap-2 max-w-md">
+                <span class="text-xs text-slate-400 w-full mb-1">Gợi ý tìm kiếm:</span>
+                <button class="bg-[#0a233f] hover:bg-slate-700 text-slate-300 text-xs px-3 py-1.5 rounded-full border border-slate-700/60">Tai nghe chống ồn tốt</button>
+                <button class="bg-[#0a233f] hover:bg-slate-700 text-slate-300 text-xs px-3 py-1.5 rounded-full border border-slate-700/60">Điện thoại chụp ảnh đêm đẹp</button>
+                <button class="bg-[#0a233f] hover:bg-slate-700 text-slate-300 text-xs px-3 py-1.5 rounded-full border border-slate-700/60">Bàn phím cơ gõ êm văn phòng</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT: PRODUCT GRID -->
+    <main class="max-w-7xl mx-auto px-4 py-8 flex-1 w-full">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-lg font-bold text-[#03172c] flex items-center gap-2">
+                <i class="fa-solid fa-fire text-orange-500"></i> Sản phẩm gợi ý từ MySQL
+            </h2>
+            <span id="product-count" class="text-xs text-slate-500">Đang tải dữ liệu...</span>
+        </div>
+
+        <!-- Grid 4 cột chứa Sản phẩm động từ Backend API -->
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Loading Skeleton Placeholder -->
+            <div class="bg-white rounded-xl border border-slate-200 p-4 animate-pulse space-y-3">
+                <div class="h-48 bg-slate-200 rounded-lg"></div>
+                <div class="h-4 bg-slate-200 rounded w-3/4"></div>
+                <div class="h-4 bg-slate-200 rounded w-1/2"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FLOATING AI CHATBOT WIDGET -->
+    <div class="fixed bottom-5 right-5 z-50">
+        <div id="ai-chat-box" class="hidden w-80 sm:w-96 bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden mb-3 flex-col h-[450px]">
+            <div class="bg-[#03172c] text-white p-3.5 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-full bg-accent flex items-center justify-center text-white text-xs font-bold">
+                        <i class="fa-solid fa-bot"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-bold">Trợ lý AI Tư vấn (Gemini)</h4>
+                        <span class="text-[10px] text-green-400 flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span> Trực tuyến
+                        </span>
+                    </div>
+                </div>
+                <button onclick="toggleChat()" class="text-slate-300 hover:text-white text-sm">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="flex-1 p-3 overflow-y-auto space-y-3 bg-slate-50 text-xs">
+                <div class="bg-white p-3 rounded-xl border border-slate-200 text-slate-700 max-w-[85%] shadow-sm space-y-1">
+                    <p class="font-semibold text-accent text-[11px]">AI Advisor:</p>
+                    <p>Xin chào! Tôi là Trợ lý KAIPY AI. Bạn cần tôi tư vấn thiết bị hay sản phẩm nào hôm nay?</p>
+                </div>
+            </div>
+
+            <div class="p-2.5 bg-white border-t border-slate-200 flex gap-2">
+                <input type="text" placeholder="Nhập câu hỏi cho AI..." class="flex-1 bg-slate-100 text-xs p-2 rounded-lg border focus:outline-none focus:border-accent">
+                <button class="bg-accent text-white px-3 rounded-lg text-xs font-semibold hover:bg-blue-700">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+
+        <button onclick="toggleChat()" class="bg-[#03172c] hover:bg-slate-800 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center text-xl transition border-2 border-accent">
+            <i class="fa-solid fa-comments"></i>
+        </button>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#021020] text-slate-400 text-xs py-6 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 text-center space-y-2">
+            <p>© 2026 KAIPY AI Smart Store - Đồ án Tốt nghiệp Kỹ thuật Phần mềm (RAG + ChromaDB + Gemini API).</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT CONNECT BACKEND API -->
+    <script>
+        function toggleChat() {
+            const chatBox = document.getElementById('ai-chat-box');
+            chatBox.classList.toggle('hidden');
+            chatBox.classList.toggle('flex');
+        }
+
+        // Tải danh sách sản phẩm động từ Node.js Express Backend
+        async function loadProducts() {
+            const productGrid = document.getElementById('product-grid');
+            const productCount = document.getElementById('product-count');
+
+            try {
+                const response = await fetch('http://localhost:3000/api/products');
+                const result = await response.json();
+
+                if (result.success && result.data.length > 0) {
+                    productCount.textContent = `Hiển thị ${result.data.length} sản phẩm`;
+                    
+                    productGrid.innerHTML = result.data.map(product => {
+                        const originalPrice = Number(product.price);
+                        const discountPrice = product.discount_price ? Number(product.discount_price) : null;
+                        const finalPrice = discountPrice || originalPrice;
+
+                        return `
+                            <div class="bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between overflow-hidden group">
+                                <div>
+                                    <div class="h-48 bg-slate-100 relative flex items-center justify-center p-4">
+                                        <img src="${product.image_url || 'https://via.placeholder.com/200'}" alt="${product.name}" class="max-h-full object-contain group-hover:scale-105 transition">
+                                        ${discountPrice ? `<span class="absolute top-2 left-2 bg-red-100 text-red-800 text-[10px] font-bold px-2 py-0.5 rounded-md border border-red-200">Giảm giá</span>` : ''}
+                                    </div>
+                                    <div class="p-4 space-y-2">
+                                        <span class="text-[11px] text-slate-400 font-medium">${product.category_name || 'Công nghệ'}</span>
+                                        <h3 class="text-sm font-semibold text-[#03172c] line-clamp-2 hover:text-accent cursor-pointer" title="${product.name}">
+                                            ${product.name}
+                                        </h3>
+                                        <div class="flex items-center gap-1 text-yellow-500 text-xs">
+                                            <i class="fa-solid fa-star"></i>
+                                            <span class="font-semibold text-slate-700">4.9</span>
+                                            <span class="text-slate-400 text-[11px]">(Đánh giá tốt)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-4 pt-0 space-y-3">
+                                    <div class="flex items-baseline justify-between">
+                                        <span class="text-base font-bold text-[#03172c]">${finalPrice.toLocaleString('vi-VN')}đ</span>
+                                        ${discountPrice ? `<span class="text-xs text-slate-400 line-through">${originalPrice.toLocaleString('vi-VN')}đ</span>` : ''}
+                                    </div>
+                                    <button class="w-full bg-[#03172c] hover:bg-slate-800 text-white text-xs font-semibold py-2 rounded-lg transition flex items-center justify-center gap-1">
+                                        <i class="fa-solid fa-cart-plus"></i> Thêm giỏ hàng
+                                    </button>
+                                </div>
+                            </div>
+                        `;
+                    }).join('');
+                } else {
+                    productGrid.innerHTML = `<p class="col-span-full text-center text-slate-500 py-10">Chưa có sản phẩm nào trong cơ sở dữ liệu.</p>`;
+                }
+            } catch (error) {
+                console.error('Lỗi kết nối Backend:', error);
+                productGrid.innerHTML = `
+                    <div class="col-span-full bg-red-50 text-red-600 p-4 rounded-xl border border-red-200 text-xs text-center">
+                        <i class="fa-solid fa-triangle-exclamation mr-1"></i> Không thể tải dữ liệu từ Backend Server (http://localhost:3000). Vui lòng đảm bảo đã chạy lệnh <code>node src/app.js</code> trong thư mục <code>backend/</code>.
+                    </div>
+                `;
+            }
+        }
+
+        // Tự động gọi khi trang đã load xong
+        document.addEventListener('DOMContentLoaded', loadProducts);
+    </script>
+</body>
+</html>

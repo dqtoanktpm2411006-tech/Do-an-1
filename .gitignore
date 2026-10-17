@@ -1,0 +1,7 @@
+node_modules/
+backend/node_modules/
+ai-engine/venv/
+ai-engine/__pycache__/
+ai-engine/chroma_db/
+.env
+*.log
